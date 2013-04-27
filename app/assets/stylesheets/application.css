@@ -11,3 +11,11 @@
  *= require_self
  *= require_tree .
  */
+
+#sketchpad {
+  border: 1px solid gray;
+  height: 600px;
+  width: 600px;
+  position: relative;
+  cursor: crosshair;
+}

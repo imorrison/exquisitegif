@@ -16,21 +16,17 @@ App.Views.AnimationForm = Backbone.View.extend({
   submit: function() {
     var that = this; 
 
-    console.log($("#animation-title").val())
-
     that.model.set('title', $("#animation-title").val());
 
     console.log(that.model.toJSON());
 
     that.model.save({}, {
       success: function() {
-        console.log('success');
-        Backbone.history.navigate('') // will need to change this to a new frame view
-
+        Backbone.history.navigate('frame/new') // will need to change this to a new frame view
       }, error: function() {
         console.log('errors..')
       }
 
-    })
+    });
   }
 })

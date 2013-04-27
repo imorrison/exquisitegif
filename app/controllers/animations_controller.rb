@@ -3,7 +3,8 @@ class AnimationsController < ApplicationController
   end
 
   def create
-    @animation = Animation.build(params[:animation])
+    @animation = Animation.new(params[:animation])
+    @animation.owner_id = 1 # will need to be current_user
     
     if @animation.save
       render json: @animation

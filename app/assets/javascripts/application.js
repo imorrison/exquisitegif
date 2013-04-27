@@ -12,4 +12,20 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require underscore
+//= require backbone
+//= require backbonerelational
+//
+// Your top-level namespace:
+//= require base_view
+//
+//
+// Directories with Backbone classes:
+//= require_tree ./models
+//= require_tree ./collections
+//= require_tree ./routers
+//= require_tree ./views
+//= require_tree ../templates
+//
+// Catch-all for other Javascripts:
 //= require_tree .

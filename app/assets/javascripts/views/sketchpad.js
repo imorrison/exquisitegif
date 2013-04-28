@@ -5,13 +5,12 @@ App.Views.Sketchpad = Backbone.View.extend({
     this.canvas = $('<canvas id="canvas" width="600" height="600"> </canvas>');
     this.context = this.canvas[0].getContext('2d');
     this.paint = false;
-    this.mouse = {x: 0, y: 0};
+    this.mouse = {x: null, y: null};
     this.style = getComputedStyle(this.el);
     this.paint = false;
 
     this.canvas.width = 700;
     this.canvas.height = 700;
-
   },
   
   events: {
@@ -50,22 +49,21 @@ App.Views.Sketchpad = Backbone.View.extend({
     var that = this;
     that.paint = true;
 
-    // that.context.beginPath();
-    //that.context.moveTo(that.mouse.x, that.mouse.y)
+    // must reset mouse coords on pendown! 
+    that.mouse.x = e.pageX - that.el.offsetLeft;
+    that.mouse.y = e.pageY - that.el.offsetTop;
 
-    
     console.log('pendown');
-    
   },
 
   penup: function(e) {
     var that = this;
 
-    // stop listening to mouse move
-    this.paint = false;
+    that.paint = false;
+
+    $(that.canvas).off('mousemove')
 
     console.log('penup');
-    
   }, 
 
   draw: function(e) {
@@ -81,13 +79,11 @@ App.Views.Sketchpad = Backbone.View.extend({
       that.context.lineCap = 'round';
       that.context.strokeStyle = 'blue';
 
-      // offset
       that.mouse.x = e.pageX - that.el.offsetLeft;
       that.mouse.y = e.pageY - that.el.offsetTop;
 
       that.context.lineTo(that.mouse.x, that.mouse.y);
       that.context.stroke();
-
     }
     console.log(that.mouse);
   },

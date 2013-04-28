@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require underscore
 //= require backbone
 //= require backbonerelational
@@ -27,3 +28,5 @@
 //
 // Catch-all for other Javascripts:
 //= require_tree .
+
+$(document).foundation();

@@ -1,7 +1,7 @@
 class FramesController < ApplicationController
   def create
     @frame = Frame.new(
-      data_url: params[:frame][:data_url],
+      data_url: params[:data_url],
       animation_id: params[:animation_id],
       user_id: 1 # will need to be the current user
       )

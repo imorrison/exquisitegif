@@ -1,9 +1,9 @@
 App.Views.Sketchpad = Backbone.View.extend({
   id: 'sketchpad',
 
-  initialize: function (canvas) {
-    this.canvas = canvas;
-    this.context = canvas[0].getContext('2d');
+  initialize: function () {
+    this.canvas = $('<canvas id="canvas" width="600" height="600"> </canvas>');
+    this.context = this.canvas[0].getContext('2d');
     this.paint = false;
     this.mouse = {x: 0, y: 0};
     this.style = getComputedStyle(this.el);
@@ -34,9 +34,16 @@ App.Views.Sketchpad = Backbone.View.extend({
   saveFrame: function(){
     var that = this;
 
-    var urlString = that.canvas[0].toDataURL('image/png')
+    var dataUrl = that.canvas[0].toDataURL('image/png').split(',')[1]
+    that.model.set('data_url', dataUrl);
 
-    console.log(urlString.split(',')[1]);
+    that.model.save({}, {
+      success: function(resp) {
+        console.log(resp)
+      }, error: function() {
+        console.log('errors..')
+      }
+    });
   },
 
   pendown: function(e) {

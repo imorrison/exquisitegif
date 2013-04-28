@@ -37,7 +37,7 @@ App.Router.ExquisiteRouter = Backbone.Router.extend({
 
     var canvas = $('<canvas id="canvas" width="600" height="600"> </canvas>');
 
-    var sketchpad = new App.Views.Sketchpad(canvas, {
+    var sketchpad = new App.Views.Sketchpad({
       model: frame
     });
 

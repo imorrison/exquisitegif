@@ -1,4 +1,6 @@
 class FramesController < ApplicationController
+  before_filter :authenticate_user!
+  
   def create
     @frame = Frame.new(
       data_url: params[:data_url],

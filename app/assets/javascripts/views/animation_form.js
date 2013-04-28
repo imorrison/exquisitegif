@@ -21,12 +21,11 @@ App.Views.AnimationForm = Backbone.View.extend({
     console.log(that.model.toJSON());
 
     that.model.save({}, {
-      success: function() {
-        Backbone.history.navigate('frame/new') // will need to change this to a new frame view
+      success: function(resp) {
+        Backbone.history.navigate('animation/' + resp.get('id'), {trigger: true} ) 
       }, error: function() {
         console.log('errors..')
       }
-
     });
   }
 })

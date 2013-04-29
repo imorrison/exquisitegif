@@ -5,8 +5,8 @@ App.Router.ExquisiteRouter = Backbone.Router.extend({
 
   routes: {
     '': 'index',
-    'animation/new' :'newAnimation',
-    'animation/:id' :'newFrame'
+    'animations/new' :'newAnimation',
+    'animations/:id' :'newFrame'
   },
 
   index: function() {
@@ -28,7 +28,9 @@ App.Router.ExquisiteRouter = Backbone.Router.extend({
   newFrame: function(id) {
     var that = this;
 
-    // I will eventually need to fetch the last frame here?
+    var previous = new App.Models.PreviousFrame({ 
+      animation_id: id
+    });
 
     // set the new frame to have the animations id
     var frame = new App.Models.Frame({ 
@@ -38,7 +40,8 @@ App.Router.ExquisiteRouter = Backbone.Router.extend({
     var canvas = $('<canvas id="canvas" width="600" height="600"> </canvas>');
 
     var sketchpad = new App.Views.Sketchpad({
-      model: frame
+      animation_id: id,
+      previous: previous
     });
 
     that.$container.html(sketchpad.render().$el);

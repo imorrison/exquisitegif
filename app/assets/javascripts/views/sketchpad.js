@@ -24,8 +24,19 @@ App.Views.Sketchpad = Backbone.View.extend({
   render: function() {
     var that = this; 
 
-    that.$el.html(that.canvas);
-    that.$el.append($('<button id="save-frame">Save</button>'))
+    // add the previews frame to the canvas object 
+    // I don't yet handel the first frame correctly - error 
+    // caused by prev.get('data_url')
+
+    that.options.previous.fetch({success: function(prev) {
+      var img = new Image();
+      img.src = prev.get('data_url')
+      that.context.drawImage(img, 0, 0);
+
+      that.$el.html(that.canvas);
+      that.$el.append($('<button id="save-frame">Save</button>'));
+      }
+    });
 
     return that;
   },
@@ -33,12 +44,19 @@ App.Views.Sketchpad = Backbone.View.extend({
   saveFrame: function(){
     var that = this;
 
+    // I should override the toJSON method in the model? 
     var dataUrl = that.canvas[0].toDataURL('image/png').split(',')[1]
-    that.model.set('data_url', dataUrl);
 
-    that.model.save({}, {
+    var newFrame = new App.Models.Frame({ 
+      animation_id: that.options.animation_id
+    });
+
+    newFrame.set('data_url', dataUrl);
+
+    newFrame.save({}, {
       success: function(resp) {
         console.log(resp)
+        Backbone.history.navigate('animations/' + resp.get('animation_id'), {trigger: true} );
       }, error: function() {
         console.log('errors..')
       }
@@ -70,10 +88,10 @@ App.Views.Sketchpad = Backbone.View.extend({
       that.context.beginPath();
       that.context.moveTo(that.mouse.x, that.mouse.y)
 
-      that.context.lineWidth = 2;
+      that.context.lineWidth = 4;
       that.context.lineJoin = 'round';
       that.context.lineCap = 'round';
-      that.context.strokeStyle = 'blue';
+      that.context.strokeStyle = 'black';
 
       that.mouse.x = e.pageX - that.el.offsetLeft;
       that.mouse.y = e.pageY - that.el.offsetTop;

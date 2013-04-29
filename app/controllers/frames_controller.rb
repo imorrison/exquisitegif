@@ -16,7 +16,7 @@ class FramesController < ApplicationController
   end
 
   def show
-    if params[:previous]
+    if params.include?(:previous)
       @frame = Frame.where("animation_id = ?", params[:animation_id])
                     .order("created_at DESC")
                     .limit(1)

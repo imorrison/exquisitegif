@@ -5,11 +5,14 @@ class Animation < ActiveRecord::Base
   has_one :gif_container
 
   def build_gif
-    dir = random_dir_name 
-    FileUtils.mkdir(dir)
+    unless self.gif_container
+      dir = random_dir_name 
+      FileUtils.mkdir(dir)
 
-    build_frames(dir)
-    run_image_magick(dir)
+      build_frames(dir)
+      run_image_magick(dir)
+      save_associated_gif_container(dir)
+    end
   end
 
   private
@@ -30,9 +33,9 @@ class Animation < ActiveRecord::Base
     def run_image_magick(dir)
       image = MiniMagick::Image.new(dir)
       image.run_command("convert -delay 20 -loop 0 #{dir}*.gif #{dir}animation.gif")
-      
+    end
 
-      # make a helper method for this
+    def save_associated_gif_container(dir)
       c = self.build_gif_container
 
       File.open("#{dir}animation.gif") do |f|

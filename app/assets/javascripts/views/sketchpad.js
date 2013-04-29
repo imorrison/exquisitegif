@@ -34,7 +34,7 @@ App.Views.Sketchpad = Backbone.View.extend({
       that.context.drawImage(img, 0, 0);
 
       that.$el.html(that.canvas);
-      that.$el.append($('<button id="save-frame">Save</button>'));
+      that.$el.append($('<button id="save-frame">save frame</button>'));
       }
     });
 

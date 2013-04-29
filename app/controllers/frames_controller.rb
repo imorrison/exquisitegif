@@ -21,7 +21,7 @@ class FramesController < ApplicationController
                     .order("created_at DESC")
                     .limit(1)
 
-      render json: @frame
+      render json: @frame[0]
     end
   end
 end

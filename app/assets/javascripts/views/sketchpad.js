@@ -52,8 +52,6 @@ App.Views.Sketchpad = Backbone.View.extend({
     // must reset mouse coords on pendown! 
     that.mouse.x = e.pageX - that.el.offsetLeft;
     that.mouse.y = e.pageY - that.el.offsetTop;
-
-    console.log('pendown');
   },
 
   penup: function(e) {
@@ -62,8 +60,6 @@ App.Views.Sketchpad = Backbone.View.extend({
     that.paint = false;
 
     $(that.canvas).off('mousemove')
-
-    console.log('penup');
   }, 
 
   draw: function(e) {
@@ -85,11 +81,10 @@ App.Views.Sketchpad = Backbone.View.extend({
       that.context.lineTo(that.mouse.x, that.mouse.y);
       that.context.stroke();
     }
-    console.log(that.mouse);
   },
 
   offPaper: function(e) {
-    console.log('offPaper')
+    // need a way to stop event listener
   }
 
 })

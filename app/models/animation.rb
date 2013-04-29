@@ -10,4 +10,10 @@ class Animation < ActiveRecord::Base
   #  then I need to run the imagemagick command
   #  after I run the imagemagik command, I should save the gif to S3
   # end
+
+  def build_gif
+    # causes in errror if run twice
+    FileUtils.mkdir("#{Rails.root}/tmp/uploads/test")
+    
+  end
 end

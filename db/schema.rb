@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130428054636) do
+ActiveRecord::Schema.define(:version => 20130429203346) do
 
   create_table "animations", :force => true do |t|
     t.integer  "owner_id",   :null => false
@@ -33,6 +33,14 @@ ActiveRecord::Schema.define(:version => 20130428054636) do
 
   add_index "frames", ["animation_id"], :name => "index_frames_on_animation_id"
   add_index "frames", ["user_id"], :name => "index_frames_on_user_id"
+
+  create_table "gif_containers", :force => true do |t|
+    t.integer  "animation_id", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "gif_containers", ["animation_id"], :name => "index_gif_containers_on_animation_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

@@ -4,16 +4,22 @@ class Animation < ActiveRecord::Base
   has_many :frames
 
 
-  # def make_gif
-  #  First I need a directory to work inside of (probably in temp)
-  #  I need to convert all the frames to gif files
-  #  then I need to run the imagemagick command
-  #  after I run the imagemagik command, I should save the gif to S3
-  # end
-
   def build_gif
     # causes in errror if run twice
-    FileUtils.mkdir("#{Rails.root}/tmp/uploads/test")
+    dir = "#{Rails.root}/tmp/uploads/test10/"
     
+    FileUtils.mkdir(dir)
+
+    self.frames.each do |frame|
+
+      File.open("#{dir}animation#{frame.id}.gif", 'wb') do|f|
+        f.write(Base64.decode64(frame.data_url))
+      end
+    end
+
+    image = MiniMagick::Image.new(dir)
+
+    image.run_command("convert -delay 20 -loop 0 #{dir}*.gif #{dir}test.gif")
   end
 end
+ 

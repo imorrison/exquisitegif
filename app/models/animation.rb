@@ -30,8 +30,16 @@ class Animation < ActiveRecord::Base
     def run_image_magick(dir)
       image = MiniMagick::Image.new(dir)
       image.run_command("convert -delay 20 -loop 0 #{dir}*.gif #{dir}animation.gif")
+      
 
-      #GifContainer.create(gif: image)
+      # make a helper method for this
+      c = self.build_gif_container
+
+      File.open("#{dir}animation.gif") do |f|
+        c.animated_gif = f
+      end
+
+      c.save
     end
 end
  

@@ -6,7 +6,7 @@ class AnimationsController < ApplicationController
 
   def create
     @animation = Animation.new(params[:animation])
-    @animation.owner_id = 1 # will need to be current_user
+    @animation.owner_id = current_user.id
     
     if @animation.save
       render json: @animation

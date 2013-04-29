@@ -2,6 +2,7 @@ class Frame < ActiveRecord::Base
   attr_accessible :animation_id, :data_url, :user_id
 
   belongs_to :animation
+  belongs_to :users
 
   def write_data_to_file
     # I needs to know the largest number and pad it with zeros

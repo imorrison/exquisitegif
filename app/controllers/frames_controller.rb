@@ -5,7 +5,7 @@ class FramesController < ApplicationController
     @frame = Frame.new(
       data_url: params[:data_url],
       animation_id: params[:animation_id],
-      user_id: 1 # will need to be the current user
+      user_id: current_user.id
       )
 
     if @frame.save

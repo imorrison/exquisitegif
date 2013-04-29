@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
+
+  has_many :frames
+  has_many :animations, :foreign_key => 'owner_id'
+  has_many :collaborations, :through => :frames, :source => 'animation'
 end

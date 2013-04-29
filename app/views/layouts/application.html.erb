@@ -26,7 +26,7 @@
     <nav class="top-bar">
        <section class="top-bar-section">
         <ul class="left">
-          <li><a href="/">Home</a></li>
+          <li><a href="/#">Home</a></li>
           <li class="divider"></li>
 
           <% if user_signed_in? %>
@@ -34,6 +34,8 @@
             <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
             <li class="divider"></li>
             <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+            <li class="divider"></li>
+            <li><a href="#animations/new">New Gif</a></li>
           <% else %>
             <li><%= link_to "Sign up", new_user_registration_path %></li> 
             <li class="divider"></li>

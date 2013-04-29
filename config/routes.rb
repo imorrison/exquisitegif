@@ -8,4 +8,6 @@ Exquisitegif::Application.routes.draw do
   resources :animations do 
     resource :frame, only: [:create, :show]
   end
+
+  match 'buildgif/:id' => 'animations#build_gif', via: [:post]
 end

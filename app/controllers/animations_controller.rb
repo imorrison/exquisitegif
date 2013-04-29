@@ -23,4 +23,12 @@ class AnimationsController < ApplicationController
       render json: @animation.errors.full_messages, status: 422
     end
   end
+
+  def build_gif
+    @animation = Animation.find(params[:id])
+
+    @animation.build_gif
+    
+    render json: @animation
+  end
 end

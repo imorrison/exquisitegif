@@ -18,7 +18,8 @@ App.Views.Sketchpad = Backbone.View.extend({
     'mousemove #canvas': 'draw',
     'mouseup #canvas': 'penup',
     'mouseleave #canvas': 'offPaper',
-    'click #save-frame': 'saveFrame'  
+    'click #save-frame': 'saveFrame',
+    'click #build-gif': 'buildGif'  
   },
 
   render: function() {
@@ -62,6 +63,17 @@ App.Views.Sketchpad = Backbone.View.extend({
         console.log('errors..')
       }
     });
+  },
+
+  buildGif:function() {
+    var that = this;
+
+    $.post('buildgif/' + that.options.animation_id, 
+      function() {
+        console.log('working')
+        Backbone.history.navigate('', {trigger: true})
+      }
+      );
   },
 
   pendown: function(e) {

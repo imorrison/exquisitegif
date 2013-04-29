@@ -14,4 +14,14 @@ class FramesController < ApplicationController
       render json: @frame.errors.full_messages, status: 422
     end
   end
+
+  def show
+    if params[:previous]
+      @frame = Frame.where("animation_id = ?", params[:animation_id])
+                    .order("created_at DESC")
+                    .limit(1)
+
+      render json: @frame
+    end
+  end
 end

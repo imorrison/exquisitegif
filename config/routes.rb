@@ -4,6 +4,6 @@ Exquisitegif::Application.routes.draw do
   root to: 'animations#index'
 
   resources :animations do 
-    resource :frame, only: [:create]
+    resource :frame, only: [:create, :show]
   end
 end

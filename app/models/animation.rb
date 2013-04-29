@@ -2,7 +2,7 @@ class Animation < ActiveRecord::Base
   attr_accessible :owner_id, :title
 
   has_many :frames
-
+  has_one :gif_container
 
   def build_gif
     dir = random_dir_name 
@@ -30,6 +30,8 @@ class Animation < ActiveRecord::Base
     def run_image_magick(dir)
       image = MiniMagick::Image.new(dir)
       image.run_command("convert -delay 20 -loop 0 #{dir}*.gif #{dir}animation.gif")
+
+      #GifContainer.create(gif: image)
     end
 end
  

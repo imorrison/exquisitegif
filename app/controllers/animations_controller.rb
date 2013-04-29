@@ -2,6 +2,8 @@ class AnimationsController < ApplicationController
   before_filter :authenticate_user!, except: [:index]
   
   def index
+    @animations = Animation.where("owner_id = ?", current_user.id)
+    render json: @animations
   end
 
   def create

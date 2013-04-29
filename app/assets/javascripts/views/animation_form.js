@@ -7,7 +7,6 @@ App.Views.AnimationForm = Backbone.View.extend({
     var that = this; 
 
     renderedForm = JST['animation/form']();
-
     that.$el.html(renderedForm);
 
     return that;
@@ -17,8 +16,6 @@ App.Views.AnimationForm = Backbone.View.extend({
     var that = this; 
 
     that.model.set('title', $("#animation-title").val());
-
-    console.log(that.model.toJSON());
 
     that.model.save({}, {
       success: function(resp) {

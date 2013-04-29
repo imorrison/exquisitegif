@@ -10,7 +10,15 @@ App.Router.ExquisiteRouter = Backbone.Router.extend({
   },
 
   index: function() {
+    var that = this; 
 
+    var animations = new App.Collections.Animations();
+
+    var animationsIndex = new App.Views.AnimationsIndex({
+      collection: animations
+    });
+    
+    that.$container.html(animationsIndex.render().$el);
   },
 
   newAnimation: function() {

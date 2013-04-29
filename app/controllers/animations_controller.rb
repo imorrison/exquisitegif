@@ -3,7 +3,10 @@ class AnimationsController < ApplicationController
   
   def index
     @animations = Animation.where("owner_id = ?", current_user.id)
-    render json: @animations
+    respond_to do |format|
+      format.html
+      format.json { render json: @animations }
+    end
   end
 
   def create

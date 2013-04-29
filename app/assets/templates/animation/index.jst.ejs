@@ -1,0 +1,9 @@
+<ul>
+  <% animations.each(function(animation) { %>
+    <li>
+      <a href="#animations/<%= animation.escape('id') %>">
+        <%= animation.escape('title') %>
+      </a>
+    </li>
+  <% }) %>
+</ul>

@@ -20,7 +20,9 @@ App.Views.Sketchpad = Backbone.View.extend({
     'mouseup #canvas': 'penup',
     'mouseleave #canvas': 'offPaper',
     'click #save-frame': 'saveFrame',
-    'click #build-gif': 'buildGif'  
+    'click #build-gif': 'buildGif',
+    'mousedown #pen': "pen",
+    'mousedown #eraser': 'eraser'  
   },
 
   render: function() {
@@ -41,9 +43,13 @@ App.Views.Sketchpad = Backbone.View.extend({
 
       renderedToolbar = JST['animation/toolbar']()
 
-      $('#app').append(renderedToolbar);
+      //$('#app').append(renderedToolbar);
+      that.$el.append(renderedToolbar);
       }
     });
+
+    //start with pen
+    that.pen();
 
     return that;
   },
@@ -81,10 +87,28 @@ App.Views.Sketchpad = Backbone.View.extend({
       );
   },
 
+  pen: function() {
+    var that = this;
+
+    this.context.globalCompositeOperation = 'source-over';
+    that.context.lineWidth = 4;
+    that.context.lineJoin = 'round';
+    that.context.lineCap = 'round';
+    that.context.strokeStyle = 'black';
+  },
+
+  eraser: function() {
+    var that = this;
+
+    this.context.globalCompositeOperation = 'destination-out';
+    this.context.fillStyle = 'rgba(0,0,0,1)';
+    this.context.strokeStyle = 'rgba(0,0,0,1)';
+    this.context.lineWidth = 5;
+  },
+
   pendown: function(e) {
     var that = this;
     that.paint = true;
-    console.log(that.el)
     // must reset mouse coords on pendown! 
     that.mouse.x = e.pageX - that.el.offsetLeft;
     that.mouse.y = e.pageY - that.el.offsetTop;
@@ -105,11 +129,6 @@ App.Views.Sketchpad = Backbone.View.extend({
 
       that.context.beginPath();
       that.context.moveTo(that.mouse.x, that.mouse.y)
-
-      that.context.lineWidth = 4;
-      that.context.lineJoin = 'round';
-      that.context.lineCap = 'round';
-      that.context.strokeStyle = 'black';
 
       that.mouse.x = e.pageX - that.el.offsetLeft;
       that.mouse.y = e.pageY - that.el.offsetTop;

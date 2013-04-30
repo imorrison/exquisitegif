@@ -3,7 +3,8 @@ class AnimationsController < ApplicationController
   
   def index
     if :authenticate_user
-      @animations = Animation.where("owner_id = ?", current_user.id)
+      @animations = Animation.includes(:gif_container)
+                             .where("owner_id = ?", current_user.id)
       
       respond_to do |format|
         format.html

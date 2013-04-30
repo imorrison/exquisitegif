@@ -33,9 +33,9 @@ gem 'omniauth-twitter'
 gem "figaro"
 
 # mini_magick and aws-sdk may be causing a boot timeout
-gem "mini_magick", require: false
+gem "mini_magick"
 gem "paperclip", "~> 3.0"
-gem 'aws-sdk', require: false
+gem 'aws-sdk'
 gem 'delayed_job_active_record'
 gem 'foreman'
 

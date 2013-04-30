@@ -14,8 +14,12 @@
 
 #sketchpad {
   border: 1px solid gray;
-  height: 600px;
-  width: 600px;
-  position: relative;
+  height: 470px;
+  width: 470px;
+  position: absolute;
   cursor: crosshair;
-} *= require foundation_and_overrides
+  margin-left: 150px;
+  margin-top: 60px;
+} 
+
+*= require foundation_and_overrides

@@ -1,16 +1,17 @@
 App.Views.Sketchpad = Backbone.View.extend({
   id: 'sketchpad',
+  class: 'row',
 
   initialize: function () {
-    this.canvas = $('<canvas id="canvas" width="600" height="600"> </canvas>');
+    this.canvas = $('<canvas id="canvas" width="470" height="470"> </canvas>');
     this.context = this.canvas[0].getContext('2d');
     this.paint = false;
     this.mouse = {x: null, y: null};
     this.style = getComputedStyle(this.el);
     this.paint = false;
 
-    this.canvas.width = 700;
-    this.canvas.height = 700;
+    this.canvas.width = 470;
+    this.canvas.height = 470;
   },
   
   events: {
@@ -79,7 +80,7 @@ App.Views.Sketchpad = Backbone.View.extend({
   pendown: function(e) {
     var that = this;
     that.paint = true;
-
+    console.log(that.el)
     // must reset mouse coords on pendown! 
     that.mouse.x = e.pageX - that.el.offsetLeft;
     that.mouse.y = e.pageY - that.el.offsetTop;

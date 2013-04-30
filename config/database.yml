@@ -46,10 +46,3 @@ test:
   username: ianmorrison
   password:
 
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: exquisite_production
-  pool: 5
-  username: ianmorrison
-  password:

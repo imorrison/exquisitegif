@@ -32,6 +32,7 @@ gem 'devise'
 gem 'omniauth-twitter'
 gem "figaro"
 
+# mini_magick and aws-sdk may be causing a boot timeout
 gem "mini_magick", require: false
 gem "paperclip", "~> 3.0"
 gem 'aws-sdk', require: false

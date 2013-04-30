@@ -49,7 +49,7 @@ class Animation < ActiveRecord::Base
 
     def run_image_magick(dir, file_name)
       image = MiniMagick::Image.new(dir)
-      image.run_command("convert -delay 20 -loop 0 #{dir}*.gif #{dir}#{file_name}.gif")
+      image.run_command("convert -delay 20 -dispose previous -loop 0 #{dir}*.gif #{dir}#{file_name}.gif")
     end
 
     def save_associated_gif_container(dir, file_name)

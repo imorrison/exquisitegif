@@ -103,7 +103,7 @@ App.Views.Sketchpad = Backbone.View.extend({
     this.context.globalCompositeOperation = 'destination-out';
     this.context.fillStyle = 'rgba(0,0,0,1)';
     this.context.strokeStyle = 'rgba(0,0,0,1)';
-    this.context.lineWidth = 5;
+    this.context.lineWidth = 20;
   },
 
   pendown: function(e) {

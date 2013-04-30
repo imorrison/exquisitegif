@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130429203650) do
+ActiveRecord::Schema.define(:version => 20130430005000) do
 
   create_table "animations", :force => true do |t|
     t.integer  "owner_id",   :null => false
@@ -59,6 +59,9 @@ ActiveRecord::Schema.define(:version => 20130429203650) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "username"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

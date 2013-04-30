@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require foundation
  *= require_tree .
  */
 
@@ -22,4 +23,3 @@
   margin-top: 60px;
 } 
 
-*= require foundation_and_overrides

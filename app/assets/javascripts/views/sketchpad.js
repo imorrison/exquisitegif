@@ -22,7 +22,8 @@ App.Views.Sketchpad = Backbone.View.extend({
     'click #save-frame': 'saveFrame',
     'click #build-gif': 'buildGif',
     'mousedown #pen': "pen",
-    'mousedown #eraser': 'eraser'  
+    'mousedown #eraser': 'eraser',
+    'click .color-select': 'color'  
   },
 
   render: function() {
@@ -104,6 +105,12 @@ App.Views.Sketchpad = Backbone.View.extend({
     this.context.fillStyle = 'rgba(0,0,0,1)';
     this.context.strokeStyle = 'rgba(0,0,0,1)';
     this.context.lineWidth = 20;
+  },
+
+  color: function(e) {
+    console.log($(e.target).data('hex'))
+    var that = this;
+    that.context.strokeStyle = $(e.target).data('hex');
   },
 
   pendown: function(e) {

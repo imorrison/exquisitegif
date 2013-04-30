@@ -1,8 +1,10 @@
 class Animation < ActiveRecord::Base
   attr_accessible :owner_id, :title
 
-  has_many :frames
-  has_one :gif_container
+  has_many :frames, :dependent => :destroy
+  has_one :gif_container, :dependent => :destroy
+
+  validates :owner_id, :title, presence: true
 
   def build_gif
     unless self.gif_container

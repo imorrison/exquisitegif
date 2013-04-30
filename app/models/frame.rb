@@ -3,4 +3,6 @@ class Frame < ActiveRecord::Base
 
   belongs_to :animation
   belongs_to :users
+
+  validates :animation_id, :data_url, :user_id, presence: true
 end

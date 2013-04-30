@@ -5,7 +5,10 @@ class GifContainer < ActiveRecord::Base
 
   has_attached_file :animated_gif
 
+  validates :animation_id, presence: true
+
   def as_json(options = {})
+    # this also needs some work
     {
       url: self.animated_gif.url
     }

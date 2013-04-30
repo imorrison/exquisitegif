@@ -70,6 +70,7 @@ GEM
       railties (~> 3.1)
       warden (~> 1.2.1)
     diff-lcs (1.2.4)
+    dotenv (0.7.0)
     ejs (1.1.1)
     erubis (2.7.0)
     execjs (1.4.0)
@@ -77,6 +78,9 @@ GEM
     figaro (0.6.3)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+    foreman (0.63.0)
+      dotenv (>= 0.7)
+      thor (>= 0.13.6)
     hashie (2.0.4)
     hike (1.2.2)
     i18n (0.6.1)
@@ -195,6 +199,7 @@ DEPENDENCIES
   devise
   ejs
   figaro
+  foreman
   jquery-rails
   meta_request
   mini_magick

@@ -29,7 +29,7 @@ class AnimationsController < ApplicationController
   def build_gif
     @animation = Animation.find(params[:id])
 
-    @animation.build_gif
+    @animation.delay.build_gif
     
     render json: @animation
   end

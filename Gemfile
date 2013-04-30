@@ -36,6 +36,7 @@ gem "mini_magick"
 gem "paperclip", "~> 3.0"
 gem 'aws-sdk'
 gem 'delayed_job_active_record'
+gem 'foreman'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

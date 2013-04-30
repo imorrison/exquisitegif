@@ -32,9 +32,9 @@ gem 'devise'
 gem 'omniauth-twitter'
 gem "figaro"
 
-gem "mini_magick"
+gem "mini_magick", require: false
 gem "paperclip", "~> 3.0"
-gem 'aws-sdk'
+gem 'aws-sdk', require: false
 gem 'delayed_job_active_record'
 gem 'foreman'
 

@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130430063344) do
+ActiveRecord::Schema.define(:version => 20130430234721) do
 
   create_table "animations", :force => true do |t|
-    t.integer  "owner_id",   :null => false
-    t.string   "title",      :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "owner_id",     :null => false
+    t.string   "title",        :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "frames_count"
   end
 
   add_index "animations", ["owner_id"], :name => "index_animations_on_owner_id"

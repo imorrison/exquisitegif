@@ -35,7 +35,7 @@ class Animation < ActiveRecord::Base
 
   private
     def random_dir_name
-      "#{Rails.root}/tmp/uploads/#{SecureRandom.hex}/"
+      "#{Rails.root}/tmp/"
     end
 
     def build_frames(dir)

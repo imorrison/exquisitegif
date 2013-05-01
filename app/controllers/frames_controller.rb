@@ -18,10 +18,14 @@ class FramesController < ApplicationController
   def show
     if params.include?(:previous)
       @frame = Frame.where("animation_id = ?", params[:animation_id])
-                    .order("created_at DESC")
-                    .limit(1)
+                     .order("created_at DESC")
+                     .limit(1)
+                     
+      @frame = @frame[0]
 
-      render json: @frame[0]
+      respond_to do |format|
+        format.json 
+      end
     end
   end
 end

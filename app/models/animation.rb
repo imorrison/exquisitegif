@@ -2,6 +2,7 @@ class Animation < ActiveRecord::Base
   attr_accessible :owner_id, :title, :frames_count
 
   has_many :frames, :dependent => :destroy
+  belongs_to :owner, :class_name => 'User' 
   has_one :gif_container, :dependent => :destroy
 
   validates :owner_id, :title, presence: true
@@ -18,20 +19,6 @@ class Animation < ActiveRecord::Base
       save_associated_gif_container(dir, gif_name)
     end
   end
-
-  # def as_json(options = {})
-  #   # I need a better solution for this
-  #   json = {
-  #     id: self.id,
-  #     title: self.title,
-  #     frames: self.frames_count
-  #   }
-
-  #   if self.gif_container
-  #     return json.merge({url: self.gif_container.animated_gif.url})
-  #   end
-  #   json
-  # end
 
   private
     def build_frames(dir, frames_name)

@@ -8,4 +8,6 @@ attributes :title, :frames_count, :id
       animation.gif_container.animated_gif.url 
     end
   end
+
+  node(:artist) {|animation| animation.owner.username}
 end

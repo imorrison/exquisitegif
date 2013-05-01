@@ -2,7 +2,7 @@ class AnimationsController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-    @animations = Animation.includes(:gif_container)
+    @animations = Animation.includes(:gif_container, :owner)
                            .where("owner_id = ?", current_user.id)
     
     respond_to do |format|

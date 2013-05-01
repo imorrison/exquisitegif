@@ -4,6 +4,7 @@ class Animation < ActiveRecord::Base
   has_many :frames, :dependent => :destroy
   belongs_to :owner, :class_name => 'User' 
   has_one :gif_container, :dependent => :destroy
+  has_many :invitations
 
   validates :owner_id, :title, presence: true
 

@@ -1,5 +1,5 @@
 class Animation < ActiveRecord::Base
-  attr_accessible :owner_id, :title
+  attr_accessible :owner_id, :title, :frames_count
 
   has_many :frames, :dependent => :destroy
   has_one :gif_container, :dependent => :destroy
@@ -23,7 +23,8 @@ class Animation < ActiveRecord::Base
     # I need a better solution for this
     json = {
       id: self.id,
-      title: self.title
+      title: self.title,
+      frames: self.frames_count
     }
 
     if self.gif_container

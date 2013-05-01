@@ -9,7 +9,7 @@ class Animation < ActiveRecord::Base
   def build_gif
     unless self.gif_container
       dir = random_dir_name 
-      FileUtils.mkdir(dir)
+      #FileUtils.mkdir(dir)
 
       file_name = SecureRandom.hex
 

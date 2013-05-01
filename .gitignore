@@ -17,6 +17,7 @@
 /
 .DS_Store
 tmp/uploads/*
+tmp/*.gif
 
 public/system/gif_containers/animated_gifs/*
 /config/application.yml

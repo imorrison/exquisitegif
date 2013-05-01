@@ -1,6 +1,5 @@
   <div id="toolbar" class="large-6 large-offset-5 columns" >
-    <fieldset>
-      <legend>Toolbar</legend>
+    <h1>Frames(<%= previous.escape('count') %>)</h1>
 
     <label for='pen'>Pen</label>
     <input type='radio' name='tool' id='pen'>
@@ -14,5 +13,8 @@
     <button class='color-select' data-hex="#10367C" id="blue"></button>
     <button class='color-select' data-hex="#CF0315" id="red"></button>
     <button class='color-select' data-hex="#000000" id="black"></button>
-    </fieldset>
+    <br>
+
+    <button id="save-frame">save frame</button>
+    <button id="build-gif">build gif</button>
   </div>

@@ -39,13 +39,11 @@ App.Views.Sketchpad = Backbone.View.extend({
       that.context.drawImage(img, 0, 0);
 
       that.$el.html(that.canvas);
-      that.$el.append($('<button id="save-frame">save frame</button>'));
-      that.$el.append($('<button id="build-gif">build gif</button>'));
-      that.$el.append($('<p></p>').text(prev.get('count')));
 
-      renderedToolbar = JST['animation/toolbar']()
+      renderedToolbar = JST['animation/toolbar']({
+        previous: prev
+      })
 
-      //$('#app').append(renderedToolbar);
       that.$el.append(renderedToolbar);
       }
     });

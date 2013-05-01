@@ -14,14 +14,26 @@
  */
 
 #sketchpad {
-  border: 1px solid gray;
   height: 470px;
-  width: 470px;
+  width: 100%;
   position: absolute;
   cursor: crosshair;
   margin-left: 150px;
   margin-top: 60px;
+}
+
+canvas {
+  border: 1px solid gray;
 } 
 
+#toolbar {
+  border: 1px solid gray;
+  position: absolute;
+  margin-left: 550px;
+  margin-top: -450px;
+}
 
+#white button {
+  background-color: black
+}
 

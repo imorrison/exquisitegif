@@ -39,6 +39,7 @@ gem 'aws-sdk'
 gem 'delayed_job_active_record'
 gem 'foreman'
 
+gem 'rabl'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

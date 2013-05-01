@@ -120,6 +120,8 @@ GEM
       mime-types
     pg (0.15.1)
     polyglot (0.3.3)
+    rabl (0.8.4)
+      activesupport (>= 2.3.14)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -206,6 +208,7 @@ DEPENDENCIES
   omniauth-twitter
   paperclip (~> 3.0)
   pg
+  rabl
   rails (= 3.2.13)
   rspec-rails
   sass-rails (~> 3.2.3)

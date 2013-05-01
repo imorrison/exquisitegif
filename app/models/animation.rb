@@ -19,19 +19,19 @@ class Animation < ActiveRecord::Base
     end
   end
 
-  def as_json(options = {})
-    # I need a better solution for this
-    json = {
-      id: self.id,
-      title: self.title,
-      frames: self.frames_count
-    }
+  # def as_json(options = {})
+  #   # I need a better solution for this
+  #   json = {
+  #     id: self.id,
+  #     title: self.title,
+  #     frames: self.frames_count
+  #   }
 
-    if self.gif_container
-      return json.merge({url: self.gif_container.animated_gif.url})
-    end
-    json
-  end
+  #   if self.gif_container
+  #     return json.merge({url: self.gif_container.animated_gif.url})
+  #   end
+  #   json
+  # end
 
   private
     def build_frames(dir, frames_name)

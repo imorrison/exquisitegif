@@ -4,9 +4,12 @@ App.Models.PreviousFrame = Backbone.Model.extend({
   },
 
   parse: function(resp) {
-    if (resp) {
+    if (resp) { 
       response = resp;
       response.data_url = "data:image/gif;base64,".concat(resp.data_url);
+      response.count = response.animation.frames_count;
+      response.animation_title = response.animation.title;
+      console.log(response);
       return response
     }
   } 

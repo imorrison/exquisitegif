@@ -102,6 +102,7 @@ GEM
     multi_json (1.7.2)
     nokogiri (1.5.9)
     oauth (0.4.7)
+    oj (2.0.12)
     omniauth (1.1.4)
       hashie (>= 1.2, < 3)
       rack
@@ -205,6 +206,7 @@ DEPENDENCIES
   jquery-rails
   meta_request
   mini_magick
+  oj
   omniauth-twitter
   paperclip (~> 3.0)
   pg

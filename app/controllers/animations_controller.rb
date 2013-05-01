@@ -7,7 +7,7 @@ class AnimationsController < ApplicationController
     
     respond_to do |format|
       format.html
-      format.json { render json: @animations }
+      format.json
     end
   end
 

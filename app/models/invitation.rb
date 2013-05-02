@@ -1,7 +1,7 @@
 class Invitation < ActiveRecord::Base
   attr_accessible :animation_id, :email, :twitter_handle
 
-  belongs_to :animation, inverse_of: :invitation
+  belongs_to :animation, inverse_of: :invitations
   belongs_to :email_invitee, :foreign_key => :email, :class_name => 'User'
 
   # the twitter association will not yet work 

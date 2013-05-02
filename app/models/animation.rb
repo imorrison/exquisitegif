@@ -1,10 +1,12 @@
 class Animation < ActiveRecord::Base
-  attr_accessible :owner_id, :title, :frames_count
+  attr_accessible :owner_id, :title, :frames_count, :invitations_attributes
 
   has_many :frames, :dependent => :destroy
   belongs_to :owner, :class_name => 'User' 
   has_one :gif_container, :dependent => :destroy
   has_many :invitations
+
+  accepts_nested_attributes_for :invitations
 
   validates :owner_id, :title, presence: true
 

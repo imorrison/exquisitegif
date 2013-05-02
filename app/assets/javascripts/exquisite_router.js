@@ -5,8 +5,9 @@ App.Router.ExquisiteRouter = Backbone.Router.extend({
 
   routes: {
     '': 'index',
-    'animations/new' :'newAnimation',
-    'animations/:id' :'newFrame'
+    'collaborations' : 'collaborations',
+    'animations/new' : 'newAnimation',
+    'animations/:id' : 'newFrame'
   },
 
   index: function() {
@@ -19,6 +20,17 @@ App.Router.ExquisiteRouter = Backbone.Router.extend({
     });
     
     that.$container.html(animationsIndex.render().$el);
+  },
+
+  collaborations: function() {
+    var that = this; 
+    var collaborations = new App.Collections.Collaborations();
+
+    var collaborationsIndex = new App.Views.AnimationsIndex({
+      collection: collaborations
+    });
+    
+    that.$container.html(collaborationsIndex.render().$el);
   },
 
   newAnimation: function() {

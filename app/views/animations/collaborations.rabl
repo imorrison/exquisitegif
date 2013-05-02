@@ -1,6 +1,6 @@
-collection @animations 
+collection @animations
 
-attributes :title, :frames_count, :id
+attributes :title, :frame_count, :id
 
 @animations.each do |animation|
   node(:url) do |animation| 
@@ -9,5 +9,5 @@ attributes :title, :frames_count, :id
     end
   end
 
-  node(:artist) {|animation| animation.owner.email }
+  node(:owner) {|animation| animation.owner.email }
 end

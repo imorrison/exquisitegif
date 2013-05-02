@@ -9,5 +9,6 @@ Exquisitegif::Application.routes.draw do
     resource :frame, only: [:create, :show]
   end
 
+  match 'collaborations' => "animations#collaborations", via: [:get]
   match 'buildgif/:id' => 'animations#build_gif', via: [:post]
 end

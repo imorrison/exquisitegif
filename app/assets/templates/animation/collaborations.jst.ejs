@@ -1,0 +1,18 @@
+<div class='row'>
+  <div class="large-9 columns" role="content">
+
+  <% animations.each(function(animation) { %>
+    <article>
+    <h3>
+      <a href="#animations/<%= animation.escape('id') %>">
+        <%= animation.escape('title') %>
+      </a>
+    </h3>
+
+    <img src="<%= animation.escape('url') %>">
+    <small>Invited by <%= animation.escape('owner') %></small>
+    </article>
+
+  <% }) %>
+  </div>
+</div>

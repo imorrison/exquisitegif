@@ -7,4 +7,6 @@ class Invitation < ActiveRecord::Base
   # the twitter association will not yet work 
   belongs_to :twitter_invitee, :foreign_key => :twitter_handle,
                 :primary_key => :username, :class_name => 'User'
+
+  validates :animation_id, presence: true
 end

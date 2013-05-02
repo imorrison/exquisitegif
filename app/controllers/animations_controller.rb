@@ -12,7 +12,7 @@ class AnimationsController < ApplicationController
   end
 
   def collaborations
-    @animations = Animation.includes(:invitations, :gif_container)
+    @animations = Animation.includes(:invitations, :gif_container, :owner)
                            .where("invitations.email = ?", current_user.email)
 
     respond_to do |format|

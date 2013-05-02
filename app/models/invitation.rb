@@ -9,4 +9,6 @@ class Invitation < ActiveRecord::Base
                 :primary_key => :username, :class_name => 'User'
 
   validates :animation_id, presence: true
+
+  # I need to also validate the email with a regex
 end

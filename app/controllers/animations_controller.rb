@@ -4,7 +4,8 @@ class AnimationsController < ApplicationController
   def index
     @animations = Animation.includes(:gif_container, :owner)
                            .where("owner_id = ?", current_user.id)
-    
+    # also need invitations where the email = current_user.email
+
     respond_to do |format|
       format.html
       format.json

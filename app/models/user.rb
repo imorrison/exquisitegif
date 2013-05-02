@@ -10,7 +10,13 @@ class User < ActiveRecord::Base
 
   has_many :frames
   has_many :animations, :foreign_key => 'owner_id'
-  has_many :collaborations, :through => :frames, :source => 'animation'
+  
+  # I may not need this assocations
+  # has_many :collaborations, :through => :frames, :source => 'animation'
+  
+  has_many :invitations, :primary_key => :email, :foreign_key => :email
+  has_many :invited_animations, :through => :invitations, :source => 'animation'
+                            
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_create do |user|

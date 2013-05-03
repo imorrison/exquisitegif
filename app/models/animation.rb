@@ -14,7 +14,7 @@ class Animation < ActiveRecord::Base
 
   def send_invitations
     self.invitations.each do |invite|
-      AnimationInvite.invite_email(self.owner, invite.email).deliver
+      AnimationInvite.delay.invite_email(self.owner, invite.email)
     end
   end
 

@@ -1,7 +1,16 @@
 <div class='row'>
-  <div class="large-6 columns">
 
-<h2>Sign in</h2>
+<div class="large-12 columns">
+  <h1>Welcome to exquisite.gif!</h1>
+</div>
+
+<div class="large-6 columns" id="cat">
+  <%= image_tag("WelcomeCat.gif") %>
+</div>
+
+<div class="large-6 columns" id="signin">
+
+<h3>Sign in</h3>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <div><%= f.label :email %><br />

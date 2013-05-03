@@ -24,6 +24,9 @@ App.Views.AnimationForm = Backbone.View.extend({
       emails.each(function() {
         that.model.get('invitations').add({email: $(this).val()});
       });
+    } else {
+      // this is a temporary fix
+      that.model.get('invitations').add({email:''})
     }
 
     that.model.save({}, {

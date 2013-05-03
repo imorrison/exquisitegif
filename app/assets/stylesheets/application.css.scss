@@ -40,23 +40,32 @@ canvas {
 }
 
 #toolbar {
-  border: 1px solid gray;
+  //border: 1px solid gray;
   position: absolute;
   margin-left: 550px;
   margin-top: -450px;
 }
 
 #frames {
-  padding: 25px;
+  padding: 10px;
+}
+
+.color-select {
+  opacity: 0.7;
+}
+
+.color-select:hover {
+  opacity: 1;
 }
 
 #eraser {
   width: 20px;
   height: 20px;
-  padding: 18px;
+  padding: 9px 30px 10px 30px;
   color: black;
   background-color: #FFFFFF;
   font-family: 'Permanent Marker', cursive;
+  font-size: 24px;
 }
 
 #eraser-box {
@@ -70,6 +79,7 @@ canvas {
   padding: 20px;
   color: #FFFFFF;
   background-color: #FFFFFF;
+  margin: -3px;
 }
 
 #yellow {
@@ -78,6 +88,7 @@ canvas {
   padding: 20px;
   color: #FDDC00;
   background-color: #FDDC00;
+  margin: -3px;
 }
 
 #teal {

@@ -45,4 +45,5 @@ App.Views.AnimationForm = Backbone.View.extend({
   removeField: function(e) {
     $(e.target).remove();
   }
+
 })

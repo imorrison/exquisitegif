@@ -10,6 +10,14 @@ class Animation < ActiveRecord::Base
 
   validates :owner_id, :title, presence: true
 
+  after_create :send_invitations
+
+  def send_invitations
+    self.invitations.each do |invite|
+      AnimationInvite.invite_email(self.owner, invite.email).deliver
+    end
+  end
+
   def build_gif
     unless self.gif_container
       dir = "#{Rails.root}/tmp/"

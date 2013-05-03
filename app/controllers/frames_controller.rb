@@ -9,7 +9,9 @@ class FramesController < ApplicationController
       )
 
     if @frame.save
-      render json: @frame
+      respond_to do |format|
+        format.json
+      end
     else
       render json: @frame.errors.full_messages, status: 422
     end
@@ -20,7 +22,7 @@ class FramesController < ApplicationController
       @frame = Frame.where("animation_id = ?", params[:animation_id])
                      .order("created_at DESC")
                      .limit(1)
-                     
+                                   
       @frame = @frame[0]
 
       respond_to do |format|

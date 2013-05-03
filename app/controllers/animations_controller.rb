@@ -4,6 +4,7 @@ class AnimationsController < ApplicationController
   def index
     @animations = Animation.includes(:gif_container, :owner)
                            .where("owner_id = ?", current_user.id)
+                           .order("animations.created_at DESC")
 
     respond_to do |format|
       format.html
@@ -14,7 +15,7 @@ class AnimationsController < ApplicationController
   def collaborations
     @animations = Animation.includes(:invitations, :gif_container, :owner)
                            .where("invitations.email = ?", current_user.email)
-
+                           .order("animations.created_at DESC")
     respond_to do |format|
       format.json
     end

@@ -69,15 +69,21 @@ App.Router.ExquisiteRouter = Backbone.Router.extend({
       canvas.heigh = 470;
       var img = new Image();
 
-      // this was key! 
+      // this was key! I needed to wait for the imageUrl to be decoded.
       img.onload = function() {
         context.drawImage(img, 0, 0);
         that.$container.html(sketchpad.render(canvas, context).$el);
       }
 
-      img.src = resp.attributes.data_url;
-      
-    }})
+      console.log(resp.attributes.count);
+      if ( resp.attributes.count ) {
+        img.src = resp.attributes.data_url;
+      } else {
+        that.$container.html(sketchpad.render(canvas, context).$el);
+      }
+
+      }
+    })
   }
 })
 

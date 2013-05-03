@@ -57,8 +57,10 @@ App.Views.Sketchpad = Backbone.View.extend({
 
     newFrame.save({}, {
       success: function(resp) {
-        console.log(resp)
-        Backbone.history.navigate('animations/' + resp.get('animation_id'), {trigger: true} );
+        console.log(resp.attributes.animation.frames_count)
+        $('#frame-count').text("Frames(" + resp.attributes.animation.frames_count + ")");
+        console.log($('#frame-count').val())
+        //Backbone.history.navigate('animations/' + resp.get('animation_id'), {trigger: true} );
       }, error: function() {
         console.log('errors..')
       }

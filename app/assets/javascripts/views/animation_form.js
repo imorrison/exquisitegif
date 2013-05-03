@@ -28,6 +28,7 @@ App.Views.AnimationForm = Backbone.View.extend({
 
     that.model.save({}, {
       success: function(resp) {
+        console.log(resp);
         Backbone.history.navigate('animations/' + resp.get('id'), {trigger: true} ) 
       }, error: function() {
         console.log('errors..')

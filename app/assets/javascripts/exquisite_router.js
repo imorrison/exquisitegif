@@ -62,7 +62,31 @@ App.Router.ExquisiteRouter = Backbone.Router.extend({
       previous: previous
     });
 
-    that.$container.html(sketchpad.render().$el);
-  }
+    previous.fetch({success: function(resp) {
+      var canvas  = $('<canvas id="canvas" width="470" height="470"> </canvas>');
+      var context = canvas[0].getContext('2d');
+      canvas.width = 470;
+      canvas.heigh = 470;
+      var img = new Image();
 
+      // this was key! 
+      img.onload = function() {
+        context.drawImage(img, 0, 0);
+        that.$container.html(sketchpad.render(canvas, context).$el);
+      }
+
+      img.src = resp.attributes.data_url;
+      
+    }})
+  }
 })
+
+
+
+
+
+
+
+
+
+

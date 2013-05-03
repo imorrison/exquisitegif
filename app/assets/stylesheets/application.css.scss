@@ -26,6 +26,14 @@ canvas {
   border: 1px solid gray;
 } 
 
+#color-boxes {
+  padding: 10px;
+}
+
+#saves {
+  padding: 10px;
+}
+
 #toolbar {
   border: 1px solid gray;
   position: absolute;
@@ -33,7 +41,69 @@ canvas {
   margin-top: -450px;
 }
 
-#white button {
-  background-color: black
+#frames {
+  padding: 25px;
+}
+
+#eraser {
+  width: 20px;
+  height: 20px;
+  padding: 18px;
+  color: black;
+  background-color: #FFFFFF;
+  font-family: 'Permanent Marker', cursive;
+}
+
+#eraser-box {
+  padding: 10px;
+  padding-bottom: 50px;
+}
+
+#white {
+  width: 20px;
+  height: 20px;
+  padding: 20px;
+  color: #FFFFFF;
+  background-color: #FFFFFF;
+}
+
+#yellow {
+  width: 20px;
+  height: 20px;
+  padding: 20px;
+  color: #FDDC00;
+  background-color: #FDDC00;
+}
+
+#teal {
+  width: 20px;
+  height: 20px;
+  padding: 20px;
+  color: #15B6CD;
+  background-color: #15B6CD;
+}
+
+#blue {
+  width: 20px;
+  height: 20px;
+  padding: 20px;
+  color: #10367C;
+  background-color: #10367C;
+}
+
+#red {
+  width: 20px;
+  height: 20px;
+  padding: 20px;
+  color: #CF0315;
+  background-color: #CF0315;
+}
+
+#black {
+  width: 20px;
+  height: 20px;
+  padding: 20px;
+  color: #000000;
+  background-color: #000000;
 }
 

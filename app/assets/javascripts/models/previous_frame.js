@@ -9,7 +9,7 @@ App.Models.PreviousFrame = Backbone.Model.extend({
       response.data_url = "data:image/gif;base64,".concat(resp.data_url);
       response.count = response.animation.frames_count;
       response.animation_title = response.animation.title;
-      console.log(response);
+      delete resp.animation
       return response
     }
   } 

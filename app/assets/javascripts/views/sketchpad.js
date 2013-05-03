@@ -3,15 +3,10 @@ App.Views.Sketchpad = Backbone.View.extend({
   class: 'row',
 
   initialize: function () {
-    this.canvas = $('<canvas id="canvas" width="470" height="470"> </canvas>');
-    this.context = this.canvas[0].getContext('2d');
     this.paint = false;
     this.mouse = {x: null, y: null};
     this.style = getComputedStyle(this.el);
     this.paint = false;
-
-    this.canvas.width = 470;
-    this.canvas.height = 470;
   },
   
   events: {
@@ -26,29 +21,23 @@ App.Views.Sketchpad = Backbone.View.extend({
     'click .color-select': 'color'  
   },
 
-  render: function() {
+  render: function(canvas, context) {
     var that = this; 
 
-    // add the previews frame to the canvas object 
-    // I don't yet handel the first frame correctly - error 
-    // caused by prev.get('data_url')
+    that.canvas = canvas;
+    that.context = context;
 
-    that.options.previous.fetch({success: function(prev) {
-      var img = new Image();
-      img.src = prev.get('data_url')
-      that.context.drawImage(img, 0, 0);
+    renderedToolbar = JST['animation/toolbar']({
+      previous: that.options.previous
+    })
 
-      that.$el.html(that.canvas);
+    console.log('canvas');
+    console.log(that.canvas[0].toDataURL())
+    that.$el.html(that.canvas);
 
-      renderedToolbar = JST['animation/toolbar']({
-        previous: prev
-      })
+    that.$el.append(renderedToolbar);
 
-      that.$el.append(renderedToolbar);
-      }
-    });
-
-    //start with pen
+    //start with a black pen
     that.pen();
 
     return that;
@@ -99,7 +88,8 @@ App.Views.Sketchpad = Backbone.View.extend({
 
   eraser: function() {
     var that = this;
-
+    console.log('eraser!')
+    // source-over or destination-out
     this.context.globalCompositeOperation = 'destination-out';
     this.context.fillStyle = 'rgba(0,0,0,1)';
     this.context.strokeStyle = 'rgba(0,0,0,1)';
@@ -107,14 +97,21 @@ App.Views.Sketchpad = Backbone.View.extend({
   },
 
   color: function(e) {
-    console.log($(e.target).data('hex'))
     var that = this;
+
+    e.preventDefault();
+
+    that.context.globalCompositeOperation = 'source-over';
+    that.context.lineWidth = 10;
+    that.context.lineJoin = 'round';
+    that.context.lineCap = 'round';
     that.context.strokeStyle = $(e.target).data('hex');
   },
 
   pendown: function(e) {
     var that = this;
     that.paint = true;
+
     // must reset mouse coords on pendown! 
     that.mouse.x = e.pageX - that.el.offsetLeft;
     that.mouse.y = e.pageY - that.el.offsetTop;

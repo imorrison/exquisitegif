@@ -1,20 +1,24 @@
   <div id="toolbar" class="large-6 large-offset-5 columns" >
+
+    <div id="frames">
     <h1>Frames(<%= previous.escape('count') %>)</h1>
+    </div>
 
-    <label for='pen'>Pen</label>
-    <input type='radio' name='tool' id='pen'>
+    <div id="eraser-box">
+        <a id='eraser'>Eraser</a>
+    </div>
 
-    <label for='eraser'>Eraser</label>
-    <input type='radio' name='tool' id='eraser'>
-
-    <button class='color-select' data-hex="#FFFFFF" id="white"></button>
-    <button class='color-select' data-hex="#FDDC00" id="yellow"></button>
-    <button class='color-select' data-hex="#15B6CD" id="teal"></button>
-    <button class='color-select' data-hex="#10367C" id="blue"></button>
-    <button class='color-select' data-hex="#CF0315" id="red"></button>
-    <button class='color-select' data-hex="#000000" id="black"></button>
+    <div id="color-boxes">
+    <a class='color-select' data-hex="#FFFFFF" id="white">white </a>
+    <a class='color-select' data-hex="#FDDC00" id="yellow">yellow</a>
+    <a class='color-select' data-hex="#15B6CD" id="teal">teal  </a>
+    <a class='color-select' data-hex="#10367C" id="blue">blue  </a>
+    <a class='color-select' data-hex="#CF0315" id="red">red   </a>
+    <a class='color-select' data-hex="#000000" id="black">black </a>
+    </div>
     <br>
-
-    <button id="save-frame">save frame</button>
-    <button id="build-gif">build gif</button>
+    <div id="saves">
+        <button id="save-frame">save frame</button>
+        <button id="build-gif">build gif</button>
+    </div>
   </div>

@@ -1,5 +1,5 @@
 if Rails.env.production?
-  # only send emails for real in prod
+  # only send emails for real in production
   ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
     :port           => '587',
@@ -10,6 +10,6 @@ if Rails.env.production?
   }
   ActionMailer::Base.delivery_method ||= :smtp
 elsif Rails.env.development?
-  # hey, did you hear about letter opener? Install it in your gemfile.
+  # use the letter opener gem in development
   ActionMailer::Base.delivery_method = :letter_opener
 end

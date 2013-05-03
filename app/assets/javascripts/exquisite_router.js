@@ -63,6 +63,8 @@ App.Router.ExquisiteRouter = Backbone.Router.extend({
     });
 
     previous.fetch({success: function(resp) {
+      //$('#frame-count').text("Frames(" + (resp.attributes.animation.frames_count + 1) + ")");
+
       var canvas  = $('<canvas id="canvas" width="470" height="470"> </canvas>');
       var context = canvas[0].getContext('2d');
       canvas.width = 470;
@@ -73,6 +75,7 @@ App.Router.ExquisiteRouter = Backbone.Router.extend({
       img.onload = function() {
         context.drawImage(img, 0, 0);
         that.$container.html(sketchpad.render(canvas, context).$el);
+        $('#frame-count').text("Frames(" + resp.attributes.count  + ")");
       }
 
       console.log(resp.attributes.count);

@@ -17,14 +17,13 @@ App.Models.Animation = Backbone.RelationalModel.extend({
 
   toJSON: function() {
     var attrs = _.clone(this.attributes)
-    console.log(attrs.invitations);
+    
     if (attrs.invitations.size() === 0) {
      delete attrs.invitations;
     } else {
       attrs.invitations_attributes = attrs.invitations;
       delete attrs.invitations;
     }
-    console.log(attrs.invitations);
     return attrs
   }
 

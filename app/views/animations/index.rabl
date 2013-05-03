@@ -9,5 +9,13 @@ attributes :title, :frames_count, :id
     end
   end
 
+  node(:finished) do |animation| 
+    if animation.gif_container
+      1
+    else
+      0 
+    end
+  end
+
   node(:artist) {|animation| animation.owner.email }
 end

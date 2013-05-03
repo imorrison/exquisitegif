@@ -4,7 +4,10 @@
   <% animations.each(function(animation) { %>
     <article>
     <h3>
-      <a href="#animations/<%= animation.escape('id') %>">
+      <% if (animation.escape('finished') == 0) { %>
+        <a href="#animations/<%= animation.escape('id') %>">
+      <% } %>
+      
         <%= animation.escape('title') %>
       </a>
     </h3>

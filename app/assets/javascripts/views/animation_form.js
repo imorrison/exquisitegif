@@ -1,7 +1,8 @@
 App.Views.AnimationForm = Backbone.View.extend({
   events: {
     "click #animation-submit": "submit",
-    "click #add-email-field": "addEmailField"
+    "click #add-email-field" : "addEmailField",
+    "dblclick #email-inputs" : "removeField"
   },
 
   render: function() {
@@ -39,5 +40,9 @@ App.Views.AnimationForm = Backbone.View.extend({
   addEmailField: function() {
     var emailField = new App.Views.EmailField()
     $("#email-inputs").append(emailField.render().$el);
+  },
+
+  removeField: function(e) {
+    $(e.target).remove();
   }
 })

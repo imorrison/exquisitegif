@@ -18,7 +18,7 @@
   width: 100%;
   position: absolute;
   cursor: crosshair;
-  margin-left: 150px;
+  margin-left: 100px;
   margin-top: 60px;
 }
 
@@ -28,6 +28,11 @@ canvas {
 
 #color-boxes {
   padding: 10px;
+}
+
+#new-animation-form {
+  margin-top: 70px;
+  margin-left: 80px;
 }
 
 #saves {

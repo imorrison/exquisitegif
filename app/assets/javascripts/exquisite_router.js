@@ -78,7 +78,6 @@ App.Router.ExquisiteRouter = Backbone.Router.extend({
         $('#frame-count').text("Frames(" + resp.attributes.count  + ")");
       }
 
-      console.log(resp.attributes.count);
       if ( resp.attributes.count ) {
         img.src = resp.attributes.data_url;
       } else {

@@ -112,6 +112,7 @@ GEM
     mini_magick (3.5.0)
       subexec (~> 0.2.1)
     multi_json (1.7.2)
+    newrelic_rpm (3.6.1.88)
     nokogiri (1.5.9)
     oauth (0.4.7)
     oj (2.0.12)
@@ -220,6 +221,7 @@ DEPENDENCIES
   letter_opener
   meta_request
   mini_magick
+  newrelic_rpm
   oj
   omniauth-twitter
   paperclip (~> 3.0)

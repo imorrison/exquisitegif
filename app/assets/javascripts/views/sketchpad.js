@@ -31,8 +31,6 @@ App.Views.Sketchpad = Backbone.View.extend({
       previous: that.options.previous
     })
 
-    console.log('canvas');
-    console.log(that.canvas[0].toDataURL())
     that.$el.html(that.canvas);
 
     that.$el.append(renderedToolbar);
@@ -142,8 +140,5 @@ App.Views.Sketchpad = Backbone.View.extend({
     }
   },
 
-  offPaper: function(e) {
-    // need a way to stop event listener
-  }
 
 })

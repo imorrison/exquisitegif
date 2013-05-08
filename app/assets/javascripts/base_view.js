@@ -13,9 +13,6 @@ var App = new (Backbone.View.extend({
     Backbone.history.start();
   }, 
 
-  render: function() {
-    // could build a sidebar here? 
-  }
   
 }))( {el: $('#app')} );
 

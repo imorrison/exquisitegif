@@ -1,7 +1,4 @@
 App.Views.EmailField = Backbone.View.extend({
-  events: {
-    // remove field event? 
-  },
 
   render: function() {
     var that = this;

@@ -7,7 +7,8 @@ App.Router.ExquisiteRouter = Backbone.Router.extend({
     '': 'index',
     'collaborations' : 'collaborations',
     'animations/new' : 'newAnimation',
-    'animations/:id' : 'newFrame'
+    'animations/:id' : 'newFrame',
+    'narration/:id'  : 'newNarration'
   },
 
   index: function() {
@@ -63,7 +64,6 @@ App.Router.ExquisiteRouter = Backbone.Router.extend({
     });
 
     previous.fetch({success: function(resp) {
-      //$('#frame-count').text("Frames(" + (resp.attributes.animation.frames_count + 1) + ")");
 
       var canvas  = $('<canvas id="canvas" width="470" height="470"> </canvas>');
       var context = canvas[0].getContext('2d');

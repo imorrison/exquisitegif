@@ -43,6 +43,7 @@ gem 'foreman'
 
 gem 'rabl'
 gem 'oj'
+gem 'kaminari'
 
 gem 'newrelic_rpm'
 

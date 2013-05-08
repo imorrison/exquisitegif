@@ -4,15 +4,17 @@ App.Router.ExquisiteRouter = Backbone.Router.extend({
   },
 
   routes: {
-    '': 'index',
+    '(:page)': 'index',
     'collaborations' : 'collaborations',
     'animations/new' : 'newAnimation',
     'animations/:id' : 'newFrame',
     'narration/:id'  : 'newNarration'
   },
 
-  index: function() {
+  index: function(page) {
     var that = this; 
+
+    console.log(page);
 
     var animations = new App.Collections.Animations();
 
@@ -86,6 +88,10 @@ App.Router.ExquisiteRouter = Backbone.Router.extend({
 
       }
     })
+  },
+
+  newNarration: function() {
+
   }
 })
 

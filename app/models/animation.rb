@@ -5,6 +5,7 @@ class Animation < ActiveRecord::Base
   belongs_to :owner, :class_name => 'User' 
   has_one :gif_container, :dependent => :destroy
   has_many :invitations, inverse_of: :animation
+  has_many :artists, :through => :frames, :source => 'user'
 
   accepts_nested_attributes_for :invitations
 

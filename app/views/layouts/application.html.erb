@@ -31,8 +31,8 @@
 
             <% if user_signed_in? %>
               <!-- <li>Logged in as <%= current_user.email %>.</li> -->
-              <li><a href="/#" class="button">Gifs</a></li>
-              <li><%= link_to 'Collaborations', "#collaborations", class: 'button' %></li>
+              <li><a href="/#gifs/1" class="button">Gifs</a></li>
+              <li><%= link_to 'Collaborations', "#collaborations/1", class: 'button' %></li>
               <li><a href="#animations/new" class='button'>New Gif</a></li>
               <li><%= link_to 'Edit profile', edit_user_registration_path, class: 'button' %></li>
               <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'button' %></li>

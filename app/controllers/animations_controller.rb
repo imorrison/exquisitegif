@@ -5,6 +5,7 @@ class AnimationsController < ApplicationController
     @animations = Animation.includes(:gif_container, :owner)
                            .where("owner_id = ?", current_user.id)
                            .order("animations.created_at DESC")
+                           .page(params[:page])
 
     respond_to do |format|
       format.html
@@ -16,6 +17,8 @@ class AnimationsController < ApplicationController
     @animations = Animation.includes(:invitations, :gif_container, :owner)
                            .where("invitations.email = ?", current_user.email)
                            .order("animations.created_at DESC")
+                           .page(params[:page])
+                           
     respond_to do |format|
       format.json
     end

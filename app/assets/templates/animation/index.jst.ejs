@@ -1,6 +1,14 @@
 <div class='row'>
   <div class="large-9 columns" role="content">
 
+<ul id="pagination" class='button-group'>
+  <% _(animations.first().get('num_pages')).times(function(n) { %>
+    <li>
+      <a href="#gifs/<%= n + 1 %>" class="p-button"><%= n + 1 %></a>
+    </li>
+  <% }) %>
+</ul>
+
   <% animations.each(function(animation) { %>
     <article>
     <h3>

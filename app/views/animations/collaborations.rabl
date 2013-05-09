@@ -2,6 +2,18 @@ collection @animations
 
 attributes :title, :frame_count, :id
 
+node(:total) do 
+  @animations.total_count
+end
+
+node(:num_pages) do 
+  @animations.num_pages
+end
+
+node(:current_page) do 
+  @animations.current_page
+end
+
 @animations.each do |animation|
   node(:url) do |animation| 
     if animation.gif_container

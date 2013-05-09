@@ -123,3 +123,35 @@ canvas {
   background-color: #000000;
 }
 
+#pagination {
+  padding: 40px;
+  margin-left: -60px;
+}
+
+.p-button {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 2em;
+  padding: 20px;
+  opacity: 0.8;
+  &:hover {
+    opacity: 1; 
+  }
+}
+
+.invite {
+  padding: 10px;
+  font-size: 0.6em;
+  color: #000000;
+}
+
+
+
+
+
+
+
+
+
+
+
+

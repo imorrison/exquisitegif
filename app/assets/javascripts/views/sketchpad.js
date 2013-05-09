@@ -78,7 +78,7 @@ App.Views.Sketchpad = Backbone.View.extend({
     var that = this;
 
     this.context.globalCompositeOperation = 'source-over';
-    that.context.lineWidth = 4;
+    that.context.lineWidth = 10;
     that.context.lineJoin = 'round';
     that.context.lineCap = 'round';
     that.context.strokeStyle = 'black';

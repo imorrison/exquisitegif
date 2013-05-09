@@ -19,7 +19,7 @@
   position: absolute;
   cursor: crosshair;
   margin-left: 100px;
-  margin-top: 60px;
+  margin-top: 50px;
 }
 
 canvas {
@@ -155,7 +155,13 @@ canvas {
   font-size: 1.5em;
 }
 
+#remember {
+  padding: 0px;
+}
 
+#sign-in {
+  margin-top: 20px;
+}
 
 
 

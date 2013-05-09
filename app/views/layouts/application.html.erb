@@ -30,7 +30,6 @@
           <ul class='button-group'>
 
             <% if user_signed_in? %>
-              <!-- <li>Logged in as <%= current_user.email %>.</li> -->
               <li><a href="/#gifs/1" class="button">Gifs</a></li>
               <li><%= link_to 'Collaborations', "#collaborations/1", class: 'button' %></li>
               <li><a href="#animations/new" class='button'>New Gif</a></li>
@@ -44,23 +43,8 @@
         </div>
       </div>
     </div>   
-    <!-- <div class="row">
-        <% flash.each do |name, msg| %>
-          <%#= content_tag :h1, msg, id: "flash_#{name}" %>
-        <% end %>
-    </div> -->
-      <%= yield %>
 
-    <footer class='row' id="footer">
-      <div class="large-12 columns">
-        <hr />
-        <div class='row'>
-          <div class="large-3 columns right">
-            <p>&copy Ian Morrison</p>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <%= yield %>
 
     <%= javascript_include_tag "application" %>
   </body>

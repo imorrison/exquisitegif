@@ -1,3 +1,7 @@
 class BuiltGif < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "Exquisitegif <app15404279@heroku.com>"
+
+  def building_gif
+    
+  end
 end

@@ -69,10 +69,9 @@ App.Views.Sketchpad = Backbone.View.extend({
 
     $.post('buildgif/' + that.options.animation_id, 
       function() {
-        console.log('working')
-        Backbone.history.navigate('', {trigger: true})
+        Backbone.history.navigate('/gifs/1', {trigger: true})
       }
-      );
+    );
   },
 
   pen: function() {

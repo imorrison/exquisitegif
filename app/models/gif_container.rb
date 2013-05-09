@@ -8,7 +8,6 @@ class GifContainer < ActiveRecord::Base
   validates :animation_id, presence: true
 
   def as_json(options = {})
-    # this also needs some work
     {
       url: self.animated_gif.url
     }

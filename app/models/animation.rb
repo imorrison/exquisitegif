@@ -48,13 +48,13 @@ class Animation < ActiveRecord::Base
     end
 
     def save_associated_gif_container(dir, gif_name)
-      c = self.build_gif_container
+      container = self.build_gif_container
 
       File.open("#{dir}#{gif_name}.gif") do |f|
-        c.animated_gif = f
+        container.animated_gif = f
       end
 
-      c.save
+      container.save
     end
 end
  
